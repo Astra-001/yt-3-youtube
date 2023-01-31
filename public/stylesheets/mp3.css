@@ -1,0 +1,7 @@
+#audio-player {
+	justify-content: center;
+	flex-direction: column;
+}
+.player-controls.scrubber {
+	width: 100%;
+}

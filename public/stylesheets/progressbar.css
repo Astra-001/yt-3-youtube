@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* basic color palette */
+  --white-1: hsl(0, 0%, 100%);
+  --black-2: hsl(0, 0%, 20%);
+  --black-1: hsl(0, 0%, 10%);
+  --green-1: hsl(100, 50%, 50%);
+  /* fonts */
+  --ft-fy-fallback-1: sans-serif;
+  --ft-fy-1: "Poppins", var(--ft-fy-fallback-1);
+  --ft-se-400: 1.05rem;
+  /* spaces */
+  --space-400: 2em;
+  /* z-index */
+  --zx-400: 400;
+}
+
+/* components */
+.page {
+  color: var(--white-1);
+  display: grid;
+  font-size: var(--ft-se-400);
+  font-family: var(--ft-fy-1);
+  background-color: var(--black-1);
+  min-height: 100vh;
+  place-items: center;
+}
+
+.progress-bar {
+  height: var(--__progress-bar_ht, 40px);
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  border: 2px solid var(--green-1);
+  border-radius: 50vw;
+  background-color: var(--__progress-bar_bd-cr, var(--black-2));
+  place-items: center;
+  max-width: var(--__progress-bar_max-wh, 500px);
+}
+.progress-bar::before {
+  z-index: var(--zx-400);
+  position: absolute;
+  content: attr(data-status);
+}
+.progress-bar::after {
+  width: var(--__progress-bar__status_wh, 0%);
+  position: absolute;
+  content: "";
+  height: 100%;
+  justify-self: start;
+  background-color: var(--__progress-bar-update_bd-cr, var(--green-1));
+}
